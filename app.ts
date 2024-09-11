@@ -3,7 +3,7 @@ import fileUpload from 'express-fileupload';
 
 import { Router, Request, Response } from 'express';
 
-import { upload } from './src/controller';
+import { UploadFileController, GetFileController } from './src/Controller';
 
 const app = express();
 
@@ -20,7 +20,9 @@ route.get('/', (req: Request, res: Response) => {
   res.json({ message: 'hello world with Typescript' });
 });
 
-route.post('/upload', upload);
+route.post('/upload', UploadFileController);
+
+route.get('/file', GetFileController);
 
 app.use(route);
 
