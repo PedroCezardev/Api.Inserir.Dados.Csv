@@ -3,7 +3,7 @@ import fileUpload from 'express-fileupload';
 
 import { Router, Request, Response } from 'express';
 
-import { UploadFileController, GetFileController } from './src/Controller';
+import { UploadFileController, GetFileController, ListFilesController } from './src/Controller';
 
 const app = express();
 
@@ -23,6 +23,8 @@ route.get('/', (req: Request, res: Response) => {
 route.post('/upload', UploadFileController);
 
 route.get('/file', GetFileController);
+
+route.get('/files', ListFilesController);
 
 app.use(route);
 
